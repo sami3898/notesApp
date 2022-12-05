@@ -1,9 +1,10 @@
-import { View, Text, SafeAreaView, TextInput, ScrollView } from 'react-native'
+import { View, Text, SafeAreaView, TextInput, ScrollView, KeyboardAvoidingView, Platform } from 'react-native'
 import React from 'react'
 import { styles } from './styles'
 import { StatusBar } from 'expo-status-bar'
 import { COLORS } from '../../common/colors'
 import Header from '../../Component/Header'
+import BottomToolBar from '../../Component/BottomToolBar'
 
 const AddNoteScreen = (props) => {
   return (
@@ -28,6 +29,10 @@ const AddNoteScreen = (props) => {
                   multiline
               />
           </ScrollView>
+          <KeyboardAvoidingView behavior={Platform.OS === 'ios' ? 'padding' : 'height'} >
+            <BottomToolBar />
+          </KeyboardAvoidingView>
+          
       </SafeAreaView>
   );
 }
